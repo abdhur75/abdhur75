@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Portfolio of Abdhur Rahman Nasir - Software Developer">
+  <meta name="author" content="Abdhur Rahman Nasir">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abdhur Rahman Nasir | Software Developer">
+  <meta property="og:description" content="Software Developer Portfolio">
+  <meta property="og:url" content="https://abdhurrahman.github.io/">
+  <meta property="og:image" content="/assets/img/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Abdhur Rahman Nasir | Software Developer">
+  <meta name="twitter:description" content="Software Developer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body { font-family: 'Arial', sans-serif; }
+    .side-nav-custom {
+      width: 250px;
+      background: #f8f9fa;
+      padding-top: 20px;
+      text-align: center;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+    }
+    .side-nav-custom img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #26a69a;
+      margin-bottom: 10px;
+    }
+    .side-nav-custom h5 { margin: 0; }
+    .side-nav-custom a {
+      display: block;
+      padding: 10px 0;
+      color: #26a69a;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
+    }
+    .side-nav-custom a:hover {
+      background: #26a69a;
+      color: white;
+    }
+    main { margin-left: 260px; padding: 15px; }
+    @media (max-width: 992px) { main { margin-left: 0; } }
+    section { padding: 10px 0; margin: 0; }
+    .section-title, h3 { margin-top: 0; margin-bottom: 10px; }
+    .btn { border-radius: 25px; }
+    h2 span { color: #26a69a; }
+    .social a { margin: 0 8px; }
+    .skill-logo {
+      width: 80px; height: 80px;
+      margin: 8px auto;
+      display: block;
+    }
+    .card-image img {
+      height: 200px; object-fit: cover;
+    }
+    .skills-slider {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      margin-top: 15px;
+    }
+    .skills-track {
+      display: flex;
+      gap: 30px;
+      animation: scroll 15s linear infinite;
+    }
+    .skill-item {
+      min-width: 140px;
+      text-align: center;
+    }
+    .skill-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .skill-item:hover .skill-logo {
+      transform: scale(1.1);
+    }
+    .skill-item p {
+      margin-top: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    @media (max-width: 768px) {
+      .skill-logo { width: 60px; height: 60px; }
+      .skill-item { min-width: 120px; }
+    }
+    @media (max-width: 480px) {
+      .skill-logo { width: 50px; height: 50px; }
+      .skill-item { min-width: 100px; }
+    }
+    .section-contact {
+      padding: 30px 0;
+      background: linear-gradient(135deg, #004d40, #00796b);
+      color: #fff;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #e0f2f1;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .contact-card {
+      background: #ffffff;
+      color: #333;
+      padding: 15px 10px;
+      border-radius: 10px;
+      margin: 5px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    .contact-icon {
+      font-size: 1.6rem;
+      color: #00796b;
+      margin-bottom: 5px;
+    }
+    .contact-card h6 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .contact-card a {
+      display: block;
+      font-size: 0.8rem;
+      color: #00796b;
+      text-decoration: none;
+      word-wrap: break-word;
+      transition: color 0.3s ease;
+    }
+    .contact-card a:hover {
+      color: #004d40;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .contact-card { height: auto; padding: 12px 8px; }
+    }
+    .card { margin: 10px 0; }
+    .card-content { padding: 15px !important; }
+    ul.browser-default li { margin-bottom: 5px; }
+    .project-card {
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card .card-image img {
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    .project-card .card-content {
+      flex-grow: 1;
+    }
+    .project-card .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>Portfolio | Abdhur Rahman Nasir</title>
+  <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png">
+</head>
+<body>
+  <div class="side-nav-custom hide-on-med-and-down">
+    <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\WhatsApp Image 2025-09-06 at 2.50.47 AM.jpeg" alt="Profile Picture">
+    <h5><b>Abdhur Rahman Nasir</b></h5>
+    <small class="grey-text">Software Developer</small>
+    <hr>
+    <a href="#about"><i class="fas fa-user"></i> About</a>
+    <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+    <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+    <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
+    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="https://drive.google.com/file/d/1FAT8Af_CBz-Nr0AZ-y4ZX5ugDqYHLoWn/view" target="_blank"><i class="fas fa-file-alt"></i> Resume</a>
+  </div>
+  <div class="navbar-fixed hide-on-large-only">
+    <nav class="teal">
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger left" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </a>
+        <div class="mobile-brand" aria-label="Brand">
+          <span class="title">ARN</span>
+          <span class="subtitle">Software Developer</span>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+    <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    <li><a href="https://drive.google.com/file/d/1FAT8Af_CBz-Nr0AZ-y4ZX5ugDqYHLoWn/view" target="_blank"><i class="fas fa-file-alt"></i> Resume</a></li>
+  </ul>
+  <main>
+    <section id="intro" class="center">
+      <h2>Hi, I'm <span>Abdhur Rahman Nasir</span></h2>
+      <h5>A <span class="typing teal-text"></span></h5>
+      <p>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving a complex and challenging real-world problems.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/abdhur75/" target="_blank"><i class="fab fa-linkedin fa-2x teal-text"></i></a>
+        <a href="https://github.com/abdhur75" target="_blank"><i class="fab fa-github fa-2x teal-text"></i></a>
+        <a href="mailto:abdhur75@gmail.com" target="_blank"><i class="fas fa-envelope fa-2x teal-text"></i></a>
+        <a href="https://x.com/abdhur75" target="_blank"><i class="fab fa-twitter fa-2x teal-text"></i></a>
+        <a href="https://www.youtube.com/@AbdhurRahmanNasir" target="_blank"><i class="fab fa-youtube fa-2x teal-text"></i></a>
+      </div>
+      <br>
+      <a href="#about" class="btn teal">Read More</a>
+      <a href="mailto:abdhur75@gmail.com" class="btn teal lighten-1">Contact Me</a>
+    </section>
+    <section id="about" class="grey lighten-4">
+      <div class="container">
+        <h3 class="teal-text">About Me</h3>
+        <p>I am a <b>Final Year Computer Science Undergraduate</b> and a <i>passionate software developer</i> with experience in <u>Python, Django, Flask, and Machine Learning</u>. I love creating scalable applications and working on impactful projects that solve real-world problems.</p>
+        <p>Currently exploring AI and Deep Learning to build the future of technology.</p>
+      </div>
+    </section>
+    <section id="experience">
+      <div class="container">
+        <h3 class="teal-text">Professional Experience</h3>
+        <div class="card hoverable">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://vision.seecs.edu.pk/" target="_blank">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\machvis_logo.jpg" alt="MachVis Logo" style="width:45px; height:45px; margin-right:12px;">
+              </a>
+              <span class="card-title" style="font-weight:bold; font-size:1.3rem;">MachVis Lab</span>
+            </div>
+            <p class="grey-text">Machine Learning Intern | Summer 2025</p>
+            <p class="grey-text">SEECS, NUST, H-12, Islamabad, Pakistan</p>
+            <ul class="browser-default">
+              <li>Worked on a research project focused on precision agriculture using UAVs (drones).</li>
+              <li>Developed UAV-based crop disease detection and plant monitoring system.</li>
+              <li>Improved response time by 20% via optimized queries.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="http://paf-iast.edu.pk/spcai" target="_blank">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\SPCAI.jpg" alt="SPCAI Logo" style="width:45px; height:45px; margin-right:12px;">
+              </a>
+              <span class="card-title" style="font-weight:bold; font-size:1.3rem;">Sino-Pak Center for Artificial Intelligence</span>
+            </div>
+            <p class="grey-text">Artificial Intelligence Intern | Summer 2024</p>
+            <p class="grey-text">PAF-IAST, Haripur, Pakistan</p>
+            <ul class="browser-default">
+              <li>Developed computer vision based PPE detection system.</li>
+              <li>Built an AI-powered attendance system using OpenCV.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://www.datamation.lk/" target="_blank">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\datamation.jpg" alt="Datamation Logo" style="width:45px; height:45px; margin-right:12px;">
+              </a>
+              <span class="card-title" style="font-weight:bold; font-size:1.3rem;">Datamation Systems (Pvt) Ltd</span>
+            </div>
+            <p class="grey-text">ERP Intern | Summer 2023</p>
+            <p class="grey-text">Colombo 04, Sri Lanka</p>
+            <ul class="browser-default">
+              <li>Assisted in ERP system implementations and process automation.</li>
+              <li>Gained hands-on experience with business logic, system flows, and client requirements.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="grey lighten-4">
+      <div class="container center">
+        <h3 class="teal-text">Projects</h3>
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card hoverable project-card">
+              <div class="card-image">
+                <img src="Images/dataset-card.jpg" alt="Brain Tumor MRI Image Filtering">
+              </div>
+              <div class="card-content">
+                <span class="card-title">Brain Tumor MRI Filtering</span>
+                <p>A web app for user-friendly interaction with the filtering and segmentation pipeline.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/sumaiya-rizvi/Image-filtering-and-Noise-removal-using-Digital--Image-Processing-Techniques" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card hoverable project-card">
+              <div class="card-image">
+                <img src="Images/6-2.jpg" alt="UAV Based Leaf Disease Detection">
+              </div>
+              <div class="card-content">
+                <span class="card-title">UAV Leaf Disease Detection</span>
+                <p>A system enhances disease identification precision, providing detailed localization, not just a disease label.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/Vision-At-SEECS/Leaf-Disease-Detection-And-Segmentation" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card hoverable project-card">
+              <div class="card-image">
+                <img src="Images/Kids Learning.png" alt="Dragonox - Kids Learning App">
+              </div>
+              <div class="card-content">
+                <span class="card-title">DragonBox - Kids Learning App</span>
+                <p>Mobile app designed for kids, combining play with interactive learning modules to improve engagement & knowledge.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://drive.google.com/file/d/1Wozc-gH6ye4ukoxiSilAi1SvHVvxA8E4/view" target="_blank">Download APK</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card hoverable project-card">
+              <div class="card-image">
+                <img src="Images/CeylonTea.jpeg" alt="UI/UX Figma Project">
+              </div>
+              <div class="card-content">
+                <span class="card-title">UI/UX Design - Figma</span>
+                <p>Crafted responsive design prototypes for Pure Ceylon Tea (Pvt) Ltd. Showcases modern UI/UX principles and branding aesthetics.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://www.figma.com/design/WJ7ThuJy0Bk35OVW0pgJCt/Untitled?node-id=0-1&t=kjBLwnTnzljyGk41-1" target="_blank">View Design</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card hoverable project-card">
+              <div class="card-image">
+                <img src="Images/Sapphire.png" alt="WordPress Website">
+              </div>
+              <div class="card-content">
+                <span class="card-title">WordPress E-Commerce</span>
+                <p>Developed a custom SEO-optimized WordPress e-commerce store with modern UI, product filtering, and payment gateway integration.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://yourwordpresswebsite.com" target="_blank">Visit Website</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card hoverable project-card">
+              <div class="card-image">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\PPE Detection.png" alt="UAV Based Leaf Disease Detection">
+              </div>
+              <div class="card-content">
+                <span class="card-title">PPE detection solutions powered by AI</span>
+                <p>Developed an AI-powered  system using OpenCV and computer vision to enhance workplace safety compliance</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/Vision-At-SEECS/Leaf-Disease-Detection-And-Segmentation" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="container center">
+        <h3 class="teal-text">Skills</h3>
+        <div class="skills-slider">
+          <div class="skills-track">
+            <div class="skill-item">
+              <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\Python.jpg" class="skill-logo" alt="Python">
+              <p>Python</p>
+            </div>
+            <div class="skill-item">
+              <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\HTML5.jpg" class="skill-logo" alt="HTML5">
+              <p>HTML5</p>
+            </div>
+            <div class="skill-item">
+              <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\CSS3.jpg" class="skill-logo" alt="CSS3">
+              <p>CSS3</p>
+            </div>
+            <div class="skill-item">
+              <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\MySQL.jpg" class="skill-logo" alt="MySQL">
+              <p>MySQL</p>
+            </div>
+            <div class="skill-item">
+              <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\tensorflow.png" class="skill-logo" alt="TensorFlow">
+              <p>TensorFlow</p>
+            </div>
+            <div class="skill-item">
+              <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\AWS.png" class="skill-logo" alt="AWS">
+              <p>AWS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="education" class="grey lighten-4">
+      <div class="container">
+        <h3 class="teal-text">Education</h3>
+        <div class="card hoverable">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://paf-iast.edu.pk/" target="_blank">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\paf_iast_logo.jpg" alt="PAF-IAST Logo" style="width:45px; height:45px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                Pak-Austria Fachhochschule: Institute of Applied Sciences & Technology
+              </span>
+            </div>
+            <p class="grey-text">Haripur, Pakistan | 2022 – 2026</p>
+            <p><strong>BS Computer Science</strong></p>
+            <ul class="browser-default">
+              <li>Key Areas: FinTech, Computer Networks, Software Engineering, Artificial Intelligence</li>
+              <li>Dean’s List for Academic Excellence (2022)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://esoft.lk/" target="_blank">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\Esoft.jpg" alt="ESOFT Logo" style="width:40px; height:40px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                E-SOFT Metro Campus
+              </span>
+            </div>
+            <p class="grey-text">Colombo, Sri Lanka | 2019</p>
+            <p><strong>Diploma in Information Technology (DiTec) – Pearson</strong></p>
+            <p><strong>Diploma in English</strong></p>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="http://www.dssenanayakecollege.lk/" target="_blank">
+                <img src="C:\Users\abdhu\OneDrive\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\DS.jpg" alt="DS Senanayake Logo" style="width:40px; height:40px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                D.S. Senanayake College
+              </span>
+            </div>
+            <p class="grey-text">Colombo, Sri Lanka | 2019 – 2021</p>
+            <p><strong>G.C.E Advanced Level – Business & Commerce</strong></p>
+            <ul class="browser-default">
+              <li>Economics (C)</li>
+              <li>Accounting (C)</li>
+              <li>Business Studies (C)</li>
+              <li>General English (A)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section-contact">
+      <div class="container">
+        <h3 class="section-title">Let’s Connect</h3>
+        <p class="section-subtitle">Reach me through any of these channels 👇</p>
+        <div class="row contact-row">
+          <div class="col s12 m6 l3">
+            <div class="contact-card z-depth-2 hoverable">
+              <i class="fas fa-envelope contact-icon"></i>
+              <h6>Email Me</h6>
+              <a href="mailto:abdhur75@gmail.com">abdhur75@gmail.com</a>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="contact-card z-depth-2 hoverable">
+              <i class="fab fa-twitter contact-icon"></i>
+              <h6>Follow on X</h6>
+              <a href="https://x.com/abdhur75" target="_blank">x.com/abdhur75</a>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="contact-card z-depth-2 hoverable">
+              <i class="fab fa-linkedin contact-icon"></i>
+              <h6>Connect on LinkedIn</h6>
+              <a href="https://www.linkedin.com/in/abdhur75/" target="_blank">linkedin.com/in/abdhur75</a>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="contact-card z-depth-2 hoverable">
+              <i class="fab fa-github contact-icon"></i>
+              <h6>Explore My Code</h6>
+              <a href="https://github.com/abdhur75" target="_blank">github.com/abdhur75</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed('.typing', {
+      strings: ["Developer", "Pythonist", "Innovator", "Problem Solver"],
+      loop: true,
+      typeSpeed: 80,
+      backSpeed: 40
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>
+</body>
+</html>
