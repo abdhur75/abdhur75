@@ -244,6 +244,34 @@
       .news-item { min-width: 150px; }
       .news-image { height: 100px; }
     }
+    .animated-form {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .contact-form-container {
+      margin-top: 30px;
+    }
+    .contact-form-container h4 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .input-field label {
+      color: #fff;
+    }
+    .input-field input, .input-field textarea {
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+    .input-field input:focus + label, .input-field textarea:focus + label {
+      color: #26a69a !important;
+    }
+    .input-field input:focus, .input-field textarea:focus {
+      border-bottom: 1px solid #26a69a !important;
+      box-shadow: 0 1px 0 0 #26a69a !important;
+    }
   </style>
   <title>Portfolio | Abdhur Rahman Nasir</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png">
@@ -551,20 +579,20 @@
         <div class="news-slider">
           <div class="news-track">
             <a href="https://example.com/blog/my-journey-in-ai-internships" target="_blank" class="news-item">
-              <img src="Images/HEC_Cricket.jpeg" class="news-image" alt="Cricket PAF-IAST">
-              <p>Wickets, Runs, and Dreams: My Experience at the HEC Intervarsity Tournament</p>
+              <img src="Images/blog1.jpg" class="news-image" alt="My Journey in AI Internships">
+              <p>My Journey in AI Internships</p>
             </a>
             <a href="https://example.com/blog/building-uav-for-agriculture" target="_blank" class="news-item">
-              <img src="Images/Imaam Shafiee.jpeg" class="news-image" alt="Kulliyathul Imaam Shafiee">
-              <p>Kulliyathul Imaam Shafiee: A Beacon of Knowledge and Achievement in Islamic Higher Education</p>
+              <img src="Images/blog2.jpg" class="news-image" alt="Building a UAV for Agriculture">
+              <p>Building a UAV for Agriculture</p>
             </a>
             <a href="https://example.com/blog/tips-for-aspiring-developers" target="_blank" class="news-item">
-              <img src="Images/NIPIS.jpeg" class="news-image" alt="Allama Iqbal Scholarship">
-              <p>Allama Iqbal Scholarship: A Gateway for Sri Lankan Students to Pursue Higher Education in Pakistan</p>
+              <img src="Images/blog3.jpg" class="news-image" alt="Tips for Aspiring Software Developers">
+              <p>Tips for Aspiring Software Developers</p>
             </a>
             <a href="https://example.com/blog/exploring-deep-learning-tensorflow" target="_blank" class="news-item">
-              <img src="Images/NYS24.jpeg" class="news-image" alt="National Youth Summit">
-              <p>Empowering Young Innovators: Exploring Opportunities in Pakistan’s Startup Landscape</p>
+              <img src="Images/blog4.jpg" class="news-image" alt="Exploring Deep Learning with TensorFlow">
+              <p>Exploring Deep Learning with TensorFlow</p>
             </a>
             <a href="https://example.com/blog/future-of-fintech" target="_blank" class="news-item">
               <img src="Images/blog5.jpg" class="news-image" alt="The Future of FinTech">
@@ -608,6 +636,35 @@
             </div>
           </div>
         </div>
+        <div class="contact-form-container">
+          <h4 class="center">Send Me a Message</h4>
+          <form id="contact-form" class="animated-form col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="name" type="text" class="validate" required>
+                <label for="name">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate" required>
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="message" class="materialize-textarea validate" required></textarea>
+                <label for="message">Message</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 center">
+                <button class="btn waves-effect waves-light teal" type="submit" name="action">Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -625,6 +682,38 @@
   <script>
     $(document).ready(function(){
       $('.sidenav').sidenav();
+    });
+  </script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var message = document.getElementById('message').value.trim();
+      var valid = true;
+
+      if (name === '') {
+        M.toast({html: 'Name is required', classes: 'red'});
+        valid = false;
+      }
+      if (email === '') {
+        M.toast({html: 'Email is required', classes: 'red'});
+        valid = false;
+      } else if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+        M.toast({html: 'Invalid email format', classes: 'red'});
+        valid = false;
+      }
+      if (message === '') {
+        M.toast({html: 'Message is required', classes: 'red'});
+        valid = false;
+      }
+
+      if (!valid) {
+        event.preventDefault();
+      } else {
+        // For demonstration, since no backend, just toast success
+        M.toast({html: 'Message sent successfully!', classes: 'green'});
+        event.preventDefault(); // Prevent actual submit for demo
+      }
     });
   </script>
 </body>
