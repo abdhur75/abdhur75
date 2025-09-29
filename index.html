@@ -637,7 +637,7 @@
           </div>
         </div>
         <div class="contact-form-container">
-          <h4 class="center">Send Me a Message</h4>
+          <h3 class="center">Send Me a Message</h3>
           <form id="contact-form" class="animated-form col s12">
             <div class="row">
               <div class="input-field col s12">
@@ -686,6 +686,7 @@
   </script>
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
       var name = document.getElementById('name').value.trim();
       var email = document.getElementById('email').value.trim();
       var message = document.getElementById('message').value.trim();
@@ -707,12 +708,16 @@
         valid = false;
       }
 
-      if (!valid) {
-        event.preventDefault();
-      } else {
-        // For demonstration, since no backend, just toast success
-        M.toast({html: 'Message sent successfully!', classes: 'green'});
-        event.preventDefault(); // Prevent actual submit for demo
+      if (valid) {
+        // For demonstration, since no backend, show success message
+        var successDiv = document.createElement('div');
+        successDiv.className = 'card green lighten-1 animated fadeIn';
+        successDiv.innerHTML = '<div class="card-content white-text"><p class="center">Message sent successfully!</p></div>';
+        document.querySelector('.contact-form-container').appendChild(successDiv);
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
       }
     });
   </script>
