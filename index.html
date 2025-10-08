@@ -202,48 +202,6 @@
       color: #555;
       margin-bottom: 10px;
     }
-    .news-slider {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      margin-top: 15px;
-    }
-    .news-track {
-      display: flex;
-      gap: 30px;
-      animation: scroll 20s linear infinite;
-    }
-    .news-item {
-      min-width: 250px;
-      text-align: center;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .news-item:hover {
-      transform: scale(1.05);
-    }
-    .news-image {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-    .news-item p {
-      margin: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-    @media (max-width: 768px) {
-      .news-item { min-width: 200px; }
-      .news-image { height: 120px; }
-    }
-    @media (max-width: 480px) {
-      .news-item { min-width: 150px; }
-      .news-image { height: 100px; }
-    }
     .animated-form {
       animation: fadeIn 1s ease-in-out;
     }
@@ -271,6 +229,37 @@
     .input-field input:focus, .input-field textarea:focus {
       border-bottom: 1px solid #26a69a !important;
       box-shadow: 0 1px 0 0 #26a69a !important;
+    }
+    .carousel-item {
+      position: relative;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 80%;
+    }
+    .caption p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      .carousel-item img { height: 250px; }
+      .caption p { font-size: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .carousel-item img { height: 200px; }
+      .caption p { font-size: 0.9rem; }
     }
   </style>
   <title>Portfolio | Abdhur Rahman Nasir</title>
@@ -576,25 +565,23 @@
     <section id="news">
       <div class="container center">
         <h3 class="teal-text">News & Blogs</h3>
-        <div class="news-slider">
-          <div class="news-track">
-            <a href="hec-cricket.html" class="news-item">
-              <img src="Images/HEC_Cricket.jpeg" class="news-image" alt="Cricket PAF-IAST">
-              <p>Wickets, Runs, and Dreams: My Experience at the HEC Intervarsity Tournament</p>
-            </a>
-            <a href="imaam-shafiee.html" class="news-item">
-              <img src="Images/Imaam Shafiee.jpeg" class="news-image" alt="Kulliyathul Imaam Shafiee">
-              <p>Kulliyathul Imaam Shafiee: A Beacon of Knowledge and Achievement in Islamic Higher Education</p>
-            </a>
-            <a href="allama-iqbal-scholarship.html" class="news-item">
-              <img src="Images/NIPIS.jpeg" class="news-image" alt="Allama Iqbal Scholarship">
-              <p>Allama Iqbal Scholarship: A Gateway for Sri Lankan Students to Pursue Higher Education in Pakistan</p>
-            </a>
-            <a href="national-youth-summit.html" class="news-item">
-              <img src="Images/NYS24.jpeg" class="news-image" alt="National Youth Summit">
-              <p>Empowering Young Innovators: Exploring Opportunities in Pakistan’s Startup Landscape</p>
-            </a>
-          </div>
+        <div class="carousel carousel-slider">
+          <a class="carousel-item" href="hec-cricket.html">
+            <img src="Images/HEC_Cricket.jpeg" alt="Cricket PAF-IAST">
+            <div class="caption"><p>Wickets, Runs, and Dreams: My Experience at the HEC Intervarsity Tournament</p></div>
+          </a>
+          <a class="carousel-item" href="imaam-shafiee.html">
+            <img src="Images/Imaam Shafiee.jpeg" alt="Kulliyathul Imaam Shafiee">
+            <div class="caption"><p>Kulliyathul Imaam Shafiee: A Beacon of Knowledge and Achievement in Islamic Higher Education</p></div>
+          </a>
+          <a class="carousel-item" href="allama-iqbal-scholarship.html">
+            <img src="Images/NIPIS.jpeg" alt="Allama Iqbal Scholarship">
+            <div class="caption"><p>Allama Iqbal Scholarship: A Gateway for Sri Lankan Students to Pursue Higher Education in Pakistan</p></div>
+          </a>
+          <a class="carousel-item" href="national-youth-summit.html">
+            <img src="Images/NYS24.jpeg" alt="National Youth Summit">
+            <div class="caption"><p>Empowering Young Innovators: Exploring Opportunities in Pakistan’s Startup Landscape</p></div>
+          </a>
         </div>
       </div>
     </section>
@@ -678,6 +665,13 @@
   <script>
     $(document).ready(function(){
       $('.sidenav').sidenav();
+      $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true
+      });
+      setInterval(function() {
+        $('.carousel').carousel('next');
+      }, 3000);
     });
   </script>
   <script>
