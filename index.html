@@ -17,44 +17,53 @@
   <meta name="twitter:description" content="Software Developer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Arial', sans-serif; }
+    body { font-family: 'Roboto', sans-serif; background-color: #f4f7f6; }
     .side-nav-custom {
       width: 250px;
-      background: #f8f9fa;
+      background: linear-gradient(#ffffff, #f8f9fa);
       padding-top: 20px;
       text-align: center;
       height: 100vh;
       position: fixed;
       overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     }
     .side-nav-custom img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      border: 4px solid #26a69a;
-      margin-bottom: 10px;
+      border: 5px solid #26a69a;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
     }
-    .side-nav-custom h5 { margin: 0; }
+    .side-nav-custom img:hover {
+      transform: scale(1.05);
+    }
+    .side-nav-custom h5 { margin: 0; font-weight: 700; }
     .side-nav-custom a {
       display: block;
-      padding: 10px 0;
+      padding: 12px 0;
       color: #26a69a;
       font-size: 16px;
       font-weight: 500;
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s, padding-left 0.3s;
     }
     .side-nav-custom a:hover {
       background: #26a69a;
       color: white;
+      padding-left: 20px;
     }
-    main { margin-left: 260px; padding: 15px; }
+    main { margin-left: 260px; padding: 20px; }
     @media (max-width: 992px) { main { margin-left: 0; } }
-    section { padding: 10px 0; margin: 0; }
-    .section-title, h3 { margin-top: 0; margin-bottom: 10px; }
-    .btn { border-radius: 25px; }
+    section { padding: 20px 0; margin: 0; transition: opacity 0.5s; }
+    .section-title, h3 { margin-top: 0; margin-bottom: 15px; font-weight: 700; }
+    .btn { border-radius: 25px; transition: transform 0.3s; }
+    .btn:hover { transform: scale(1.05); }
     h2 span { color: #26a69a; }
-    .social a { margin: 0 8px; }
+    .social a { margin: 0 10px; transition: color 0.3s; }
+    .social a:hover { color: #004d40; }
     .skill-logo {
       width: 80px; height: 80px;
       margin: 8px auto;
@@ -110,6 +119,8 @@
       background: linear-gradient(135deg, #004d40, #00796b);
       color: #fff;
       text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     .section-title {
       font-size: 1.8rem;
@@ -139,6 +150,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .contact-card:hover {
       transform: translateY(-5px);
@@ -169,7 +181,8 @@
     @media (max-width: 600px) {
       .contact-card { height: auto; padding: 12px 8px; }
     }
-    .card { margin: 10px 0; }
+    .card { margin: 10px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: box-shadow 0.3s; }
+    .card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
     .card-content { padding: 15px !important; }
     ul.browser-default li { margin-bottom: 5px; }
     .project-card {
@@ -237,6 +250,7 @@
       width: 100%;
       height: 300px;
       object-fit: cover;
+      border-radius: 10px;
     }
     .caption {
       position: absolute;
@@ -261,6 +275,13 @@
       .carousel-item img { height: 200px; }
       .caption p { font-size: 0.9rem; }
     }
+    .cert-card .card-action a {
+      color: #26a69a;
+      font-weight: 500;
+    }
+    .cert-card .card-action a:hover {
+      text-decoration: underline;
+    }
   </style>
   <title>Portfolio | Abdhur Rahman Nasir</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png">
@@ -276,6 +297,7 @@
     <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
     <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
     <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
     <a href="#news"><i class="fas fa-newspaper"></i> News & Blogs</a>
     <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
     <a href="https://drive.google.com/file/d/1FAT8Af_CBz-Nr0AZ-y4ZX5ugDqYHLoWn/view" target="_blank"><i class="fas fa-file-alt"></i> Resume</a>
@@ -299,6 +321,7 @@
     <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
     <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
     <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+    <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
     <li><a href="#news"><i class="fas fa-newspaper"></i> News & Blogs</a></li>
     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
     <li><a href="https://drive.google.com/file/d/1FAT8Af_CBz-Nr0AZ-y4ZX5ugDqYHLoWn/view" target="_blank"><i class="fas fa-file-alt"></i> Resume</a></li>
@@ -558,6 +581,79 @@
               <li>Business Studies (C)</li>
               <li>General English (A)</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="certifications">
+      <div class="container">
+        <h3 class="teal-text">Certifications</h3>
+        <div class="card hoverable cert-card">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://aws.amazon.com/" target="_blank">
+                <img src="C:\Users\abdhu\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\sliit_logo.jpg" alt="SLIIT Logo" style="width:45px; height:45px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                AI/ML Engineer - Stage 1 & 2
+              </span>
+            </div>
+            <p class="grey-text">Centre for Open and Distance Education, Faculty of Computing SLIIT | Issued 2025</p>
+            <p>Demonstrating advanced expertise in Machine Learning, Computer Vision, NLP and Neural Networks through rigorous coursework and applied projects.</p>
+          </div>
+          <div class="card-action">
+            <a href="https://www.credly.com/badges/example-aws" target="_blank">Verify Certification</a>
+          </div>
+        </div>
+        <div class="card hoverable cert-card">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://cloud.google.com/" target="_blank">
+                <img src="C:\Users\abdhu\Documents\CS-1(22)\7th Semester (Fall 25)\COMP-453 Full Stack Development\Activity 01 02-09-2025\Images\UOM.jpg" alt="UOM Logo" style="width:45px; height:45px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                Python Programming - Centre for Open & Distance Learning (CODL), UoM
+              </span>
+            </div>
+            <p class="grey-text">Department of Computer Science and Engineering, Faculty of Engineering, University of Moratuwa | Issued 2025</p>
+            <p>Expertise in designing, building, and productionizing ML models.</p>
+          </div>
+          <div class="card-action">
+            <a href="https://www.coursera.org/account/accomplishments/verify/example-google" target="_blank">Verify Certification</a>
+          </div>
+        </div>
+        <div class="card hoverable cert-card">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://www.microsoft.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/512px-Microsoft_Azure_Logo.svg.png" alt="Microsoft Azure Logo" style="width:45px; height:45px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                Microsoft Certified: Azure Fundamentals
+              </span>
+            </div>
+            <p class="grey-text">Microsoft | Issued 2023</p>
+            <p>Foundational knowledge of cloud services and Azure.</p>
+          </div>
+          <div class="card-action">
+            <a href="https://www.credly.com/badges/example-azure" target="_blank">Verify Certification</a>
+          </div>
+        </div>
+        <div class="card hoverable cert-card">
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <a href="https://www.ibm.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/799px-IBM_logo.svg.png" alt="IBM Logo" style="width:45px; height:45px; margin-right:10px;">
+              </a>
+              <span class="card-title" style="font-size:1.3rem; font-weight:600;">
+                IBM Data Science Professional Certificate
+              </span>
+            </div>
+            <p class="grey-text">IBM | Issued 2023</p>
+            <p>Skills in data science, machine learning, and data visualization.</p>
+          </div>
+          <div class="card-action">
+            <a href="https://www.coursera.org/account/accomplishments/verify/example-ibm" target="_blank">Verify Certification</a>
           </div>
         </div>
       </div>
